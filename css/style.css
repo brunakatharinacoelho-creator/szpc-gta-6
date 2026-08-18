@@ -29,6 +29,11 @@ body {
     margin: 0 auto;
     padding: 8px 32px;
     z-index: 10;
+    display: flex;
+    /* Coloca os itens lado a lado */
+    align-items: center;
+    /* Alinha verticalmente pelo centro */
+    gap: 16px;
 }
 
 .faixa-topo {
@@ -48,7 +53,7 @@ body {
 
 .menu-logo {
     font-family: 'Oswald', sans-serif;
-    font-size: 29px;
+    font-size: 42px;
     font-weight: 700;
     text-decoration: none;
     color: #fff;
@@ -135,6 +140,7 @@ body {
     background-color: #ff3d8b;
     color: #fff;
 }
+
 .botao-midia {
     background-color: #c1ee8e;
     color: black;
@@ -146,6 +152,7 @@ body {
     box-shadow: 0 0 28px rgba(255, 61, 139, 0.65);
     transform: translateY(-2px);
 }
+
 .card-vertical-conteudo .botao {
     margin-top: auto;
 }
@@ -244,7 +251,7 @@ main {
 }
 
 .secao-historia {
-    padding: 120px 0;
+    padding: 60px 0;
     text-align: center;
 }
 
@@ -257,6 +264,7 @@ main {
     color: #ff3d8b;
     margin-bottom: 12px;
 }
+
 .rotulo-midias {
     font-family: 'Oswald', sans-serif;
     font-size: 14px;
@@ -269,10 +277,11 @@ main {
 }
 
 .texto-direita {
-    
+
     align-items: flex-end;
     text-align: right;
 }
+
 .historia-titulo {
     font-family: 'Oswald', sans-serif;
     font-size: 56px;
@@ -326,26 +335,35 @@ main {
     min-height: 440px;
     border-radius: 24px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center left;
+    position: relative;
+    /* OBRIGATÓRIO: impede que a imagem fuja do card */
     display: flex;
     justify-content: flex-end;
-    /* Joga os textos para a direita */
+    /* Mantém o texto alinhado à direita */
     align-items: center;
     padding: 40px 60px;
 }
 
-/* Imagens individuais de cada trailer (adicione as suas imagens reais na pasta assets) */
-.trailer-1 {
-    background-image: url('/assets/card-trailer.png');
+.card-trailer-imagem {
+    position: absolute;
+    /* Solta a imagem da fila normal */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Preenche o card todo sem distorcer */
+    z-index: 1;
+    /* Fica na camada do fundo */
 }
 
-.trailer-2 {
-    background-image: url('/assets/card-trailer-2.jpg');
-}
 
-/* 3. A caixa que segura apenas os textos à direita (limpa de conflitos) */
+/* TEXTOS TRAILERS (limpa de conflitos) */
 .card-video-container {
+    position: relative;
+    /* OBRIGATÓRIO para funcionar o z-index */
+    z-index: 2;
+    /* Garante que fica por CIMA da imagem (camada 2 > camada 1) */
     max-width: 440px;
     display: flex;
     flex-direction: column;
@@ -373,15 +391,21 @@ main {
     width: 18px;
     height: 18px;
 }
-.secao-cards-verticais{
+
+.secao-cards-verticais {
     padding: 20px;
 }
+
 .card-vertical {
-    background-color: #14142a;  /* Cor de fundo escura */
-    border-radius: 20px;         /* Cantos arredondados */
-    overflow: hidden;            /* Garante que a imagem não vaze nas bordas */
+    background-color: #14142a;
+    /* Cor de fundo escura */
+    border-radius: 20px;
+    /* Cantos arredondados */
+    overflow: hidden;
+    /* Garante que a imagem não vaze nas bordas */
     display: flex;
-    flex-direction: column;     /* EMPILHA: Imagem em cima, texto embaixo */
+    flex-direction: column;
+    /* EMPILHA: Imagem em cima, texto embaixo */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -392,22 +416,25 @@ main {
 
 .card-vertical-imagem {
     width: 100%;
-    height: 240px;               /* Altura fixa para todas as fotos ficarem iguais */
+    height: 240px;
+    /* Altura fixa para todas as fotos ficarem iguais */
     overflow: hidden;
-    
+
 }
 
 .card-vertical-imagem img {
     width: 100%;
     height: 100%;
-    object-fit: cover;           /* Não distorce nem achata a imagem */
+    object-fit: cover;
+    /* Não distorce nem achata a imagem */
     transition: transform 0.5s ease;
     object-position: 20% 50%;
-    
+
 }
 
 .card-vertical:hover .card-vertical-imagem img {
-    transform: scale(1.05);      /* Efeito de zoom suave na foto */
+    transform: scale(1.05);
+    /* Efeito de zoom suave na foto */
 }
 
 /* 2. Área de Conteúdo abaixo da imagem */
@@ -415,9 +442,11 @@ main {
     padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;    /* Alinha o texto à esquerda */
+    align-items: flex-start;
+    /* Alinha o texto à esquerda */
     gap: 12px;
-    flex-grow: 1;                /* Faz o conteúdo preencher a altura do card */
+    flex-grow: 1;
+    /* Faz o conteúdo preencher a altura do card */
 }
 
 .card-vertical-titulo {
@@ -434,6 +463,7 @@ main {
     line-height: 1.5;
     margin-bottom: 12px;
 }
+
 .rodape {
     background-color: #14142a;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -519,7 +549,7 @@ main {
 
 }
 
-.grid-cards{
+.grid-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
