@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d1a;
+    color: #fff;
+    font-family: 'Questrial', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.menu-conteudo {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 32px;
+    z-index: 10;
+}
+
+.faixa-topo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Preenche toda a altura do menu */
+    object-fit: cover;
+    /* Mantém a proporção sem distorcer */
+    z-index: 1;
+    /* Fica atrás do .menu-conteudo */
+    pointer-events: none;
+
+}
+
+.menu-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 61, 139, 0.4);
+    position: relative;
+    z-index: 11;
+}
+
+.menu-rolado {
+    transform: translateY(-100%);
+}
+
+.capa-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0;
+    filter: brightness(0.7);
+}
+
+.capa {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.capa-painel {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 40px;
+    z-index: 2;
+}
+
+.capa-conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0 8px;
+    position: relative;
+    z-index: 2;
+    will-change: opacity, transform;
+}
+
+.capa-moldura {
+    max-width: 900px;
+    width: 90%;
+    border-radius: 12px;
+}
+
+.capa-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 14px 35px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+.botao-primario {
+    background-color: #ff3d8b;
+    color: #fff;
+}
+.botao-midia {
+    background-color: #c1ee8e;
+    color: black;
+    font-size: 17px;
+    justify-content: center;
+}
+
+.botao-primario:hover {
+    box-shadow: 0 0 28px rgba(255, 61, 139, 0.65);
+    transform: translateY(-2px);
+}
+.card-vertical-conteudo .botao {
+    margin-top: auto;
+}
+
+.capa-barra {
+    width: 100%;
+    background-color: rgba(13, 13, 26, 0.85);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 20px 0;
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.capa-barra-conteudo {
+    max-width: 900px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.capa-lancamento {
+    flex: 1;
+}
+
+.capa-plataformas {
+    flex: 1;
+    text-align: right;
+}
+
+.capa-rotulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6e6e85;
+    margin-bottom: 8px;
+}
+
+.capa-data {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lista-plataformas {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    color: #c4c0d8;
+}
+
+.texto-plataforma {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.capa-seta {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 4;
+    opacity: 0.7;
+    animation: saltar 2s infinite;
+}
+
+@keyframes saltar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+main {
+    position: relative;
+    z-index: 0;
+}
+
+.conteudo-central {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.secao-historia {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.rotulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff3d8b;
+    margin-bottom: 12px;
+}
+.rotulo-midias {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #64f7cb;
+    margin-bottom: 12px;
+    letter-spacing: normal;
+}
+
+.texto-direita {
+    
+    align-items: flex-end;
+    text-align: right;
+}
+.historia-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ff6a6a;
+    margin-bottom: 32px;
+}
+
+.historia-texto {
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.historia-texto p {
+    background-image: linear-gradient(to bottom, #ff3d8b, #7537d8, rgba(226, 180, 245, 0.505));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-family: 'Archivo Black Static' bold;
+    font-size: 28.7px;
+    font-weight: 900;
+    line-height: 1.7;
+    color: #c4c0d8;
+    display: inline-block;
+    max-width: 850px;
+    grid-column-end: main;
+    grid-column-start: main;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    overflow-wrap: break-word;
+
+}
+
+.secao-videos {
+    padding: 100px 0;
+
+}
+
+.secao-videos .conteudo-central {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* 2. O Quadro principal (com bordas e fundo) */
+.card-trailer {
+    width: 100%;
+    min-height: 440px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center left;
+    display: flex;
+    justify-content: flex-end;
+    /* Joga os textos para a direita */
+    align-items: center;
+    padding: 40px 60px;
+}
+
+/* Imagens individuais de cada trailer (adicione as suas imagens reais na pasta assets) */
+.trailer-1 {
+    background-image: url('/assets/card-trailer.png');
+}
+
+.trailer-2 {
+    background-image: url('/assets/card-trailer-2.jpg');
+}
+
+/* 3. A caixa que segura apenas os textos à direita (limpa de conflitos) */
+.card-video-container {
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 12px;
+}
+
+.card-video-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f3e4c4;
+    margin-bottom: 8px;
+}
+
+.card-video-descricao {
+    font-size: 18px;
+    max-width: 420px;
+    margin-bottom: 24px;
+}
+
+.card-video-botao img {
+    width: 18px;
+    height: 18px;
+}
+.secao-cards-verticais{
+    padding: 20px;
+}
+.card-vertical {
+    background-color: #14142a;  /* Cor de fundo escura */
+    border-radius: 20px;         /* Cantos arredondados */
+    overflow: hidden;            /* Garante que a imagem não vaze nas bordas */
+    display: flex;
+    flex-direction: column;     /* EMPILHA: Imagem em cima, texto embaixo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-vertical:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-vertical-imagem {
+    width: 100%;
+    height: 240px;               /* Altura fixa para todas as fotos ficarem iguais */
+    overflow: hidden;
+    
+}
+
+.card-vertical-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* Não distorce nem achata a imagem */
+    transition: transform 0.5s ease;
+    object-position: 20% 50%;
+    
+}
+
+.card-vertical:hover .card-vertical-imagem img {
+    transform: scale(1.05);      /* Efeito de zoom suave na foto */
+}
+
+/* 2. Área de Conteúdo abaixo da imagem */
+.card-vertical-conteudo {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    /* Alinha o texto à esquerda */
+    gap: 12px;
+    flex-grow: 1;                /* Faz o conteúdo preencher a altura do card */
+}
+
+.card-vertical-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.card-vertical-descricao {
+    color: #c4c0d8;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+.rodape {
+    background-color: #14142a;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 80px 0 40px;
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+
+.rodape-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 61, 139, 0.3);
+}
+
+.rodape-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+}
+
+.rodape-links a {
+    color: #c4c0d8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.rodape-links a:hover {
+    color: #ff3d8b;
+}
+
+.rodape-redes {
+    display: flex;
+    gap: 16px;
+}
+
+.rede-social {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #c4c0d8;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s;
+}
+
+.rede-social:hover {
+    color: #fff;
+    background-color: #ff3d8b;
+}
+
+.rodape-classificacao,
+.rodape-direitos {
+    color: #6e6e85;
+    font-size: 13px;
+    max-width: 640px;
+}
+
+.rodape-classificacao a {
+    color: #c4c0d8;
+}
+
+.logo-gtavi {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    padding: 40px 20px;
+    text-align: center;
+
+}
+
+.grid-cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+@media (max-width: 700px) {
+    .capa-barra-conteudo {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .capa-lancamento,
+    .capa-plataformas {
+        text-align: center;
+    }
+
+    .lista-plataformas {
+        justify-content: center;
+    }
+
+    .card-video-container {
+        aspect-ratio: 4 / 5;
+        background-position: 30% center;
+    }
+}
+
+.aparecer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.aparecer.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
